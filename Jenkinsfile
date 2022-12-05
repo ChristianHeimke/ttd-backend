@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
               sh '''
-                docker build -t christianheimke/ttd-backend:jenkins-${BUILD_NUMBER} .
+                docker build  --no-cache  -t christianheimke/ttd-backend:jenkins-${BUILD_NUMBER} .
               '''
             }
         }
