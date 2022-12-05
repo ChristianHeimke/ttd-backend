@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                 docker stop ttd-backend || true
                 docker rm -f ttd-backend || true
-                docker run -p5000:5000 -d --name ttd-backend christianheimke/ttd-backend:jenkins-${BUILD_NUMBER}
+                docker run -p5000:5000 -v /home/deploy/data.csv:/app/data.csv -d --name ttd-backend christianheimke/ttd-backend:jenkins-${BUILD_NUMBER}
                 '''
             }
         }
